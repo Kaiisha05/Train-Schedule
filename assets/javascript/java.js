@@ -45,8 +45,8 @@ $("#submit").on("click", function () {
         });
 
         // user input displayed on page
-$("#user-train-name").text(trainName);
-$("#user-destination").text(destination);
+$("#user-train-name").prepend(trainName);
+$("#user-destination").prepend(destination);
         // })
 
    
