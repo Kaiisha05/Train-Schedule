@@ -10,8 +10,10 @@ firebase.initializeApp(firebaseConfig);
 
 // Create a variable to reference the database
 var database = firebase.database();
-var trainName;
-var destination;
+
+// Initial Variables
+var trainName = "";
+var destination = "";
 // var firstTrain;
 // var frequency;
 // At the initial load and subsequent value changes, get a snapshot of the stored data.
@@ -22,8 +24,8 @@ var destination;
 //     $("#user-train-name").text(trainName);
 //     $("#user-destination").text(destination);
 
-
-$("#submit").on("click", function () {
+// Capture Button Click
+$("#submit").on("click", function (event) {
     event.preventDefault();
 
     // variables needed to populate the user input fields
@@ -32,22 +34,39 @@ $("#submit").on("click", function () {
     // firstTrain = $("#1st-train").val().trim();
     // frequency = $("#frequency").val().trim();
 
-  
 
-        console.log(trainName);
-        console.log(destination);
-        // console.log(firstTrain);
-        // console.log(frequency);
- 
-        database.ref().set({
-            train: trainName,
-            dest: destination,
-        });
 
-        // user input displayed on page
-$("#user-train-name").prepend(trainName);
-$("#user-destination").prepend(destination);
+    // console.log(trainName);
+    // console.log(destination);
+    // console.log(firstTrain);
+    // console.log(frequency);
+
+    database.ref().set({
+        train: trainName,
+        dest: destination,
+    });
+});
+
+database.ref().on("value", function (snapshot) {
+
+    // log what's coming out of the snapshot
+    console.log(snapshot.val());
+    console.log(snapshot.val().train);
+    console.log(snapshot.val().dest);
+
+    // Update HTML
+    $("#user-train-name").prepend(trainName);
+    $("#user-destination").prepend(destination);
+
+    // handle any erros
+}, function (errorObjects) {
+    console.log("Errors handled: " + errorObjects.code);
+
+
+
+
+});
+
         // })
 
-   
-    });
+

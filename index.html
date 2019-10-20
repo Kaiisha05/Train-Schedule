@@ -8,12 +8,19 @@
   <title>Trainin' to Meet You</title>
 
   <!-- Bootstrap CDN-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 
 
   <!-- Firebase References -->
@@ -27,10 +34,33 @@
   </div>
   <br>
   <!-- Where the user's input is populated...try to remake dynamically... -->
+  <div class="col-lg-8">
   <div class="current-schedule">
     <h2>Current Train Schedule</h2>
   </div>
-  <table>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Train</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Frequency (min)</th>
+        <th scope="col">Next Arrival</th>
+        <th scope="col">Mintues Away</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="user-train-name">Mickey Express</td>
+        <td id="user-destination">Orlando</td>
+        <td id="user-frequency">25</td>
+        <td id="next-arrival">01:45</td>
+        <td id="minutes-away">5</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- my version non-bootstrap -->
+  <!-- <table>
     <thead>
       <tr>
         <th>Train</th>
@@ -39,21 +69,42 @@
         <th>Next Arrival</th>
         <th>Minutes Away</th>
       </tr>
-    </thead>
-    <tbody>
+    </thead> -->
+  <!-- <tbody>
       <tr>
-        <td id="user-train-name"></td>
-        <td id="user-destination"></td>
+        <td id="user-train-name">Mickey Express</td>
+        <td id="user-destination">Kissimee</td>
         <td id="user-frequency"></td>
         <td id="next-arrival"></td>
         <td id="minutes-away"></td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
   <br>
 
   <!-- Where the user adds their inputs -->
-  <div class="add-train">
+  <form class="Add-Train-Header"><h2>Add Train</h2>
+    <div class="train-form">
+      <label>Train Name</label>
+      <input type="text" class="form-control" id="train-name" aria-describedby="train" placeholder="Enter Train Name">
+    </div>
+    <div class="train-form">
+      <label>Destination</label>
+      <input type="text" class="form-control" id="destination" placeholder="Enter Destination">
+    </div>
+    <div class="train-form">
+      <label>First Train Time</label>
+      <input type="text" class="form-control" id="1st-train" placeholder="HH:MM">
+    </div>
+    <div class="train-form">
+      <label>Frequency (min)</label>
+      <input type="numer" class="form-control" id="frequency">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+  <!-- My version non-bootstrap -->
+  <!-- <div class="add-train">
     <form action="input">
       <h2>Add Train</h2>
     </form>
@@ -75,7 +126,7 @@
     </p>
     <button id="submit">Submit</button>
     </form>
-  </div>
+  </div> -->
 
 
 </body>
